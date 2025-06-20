@@ -17,6 +17,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 import streamlit as st
 
+# Streamlit configurations
+# --- Page Configuration (Must be the first Streamlit command) ---
+# Set the page configuration to have the sidebar expanded by default
+st.set_page_config(    
+    layout="centered",
+    initial_sidebar_state="auto" # This is the key!
+)
+
 # --- 1. Load and prepare the Dataset 🔄️ ---
 
 # Load the Iris dataset
@@ -61,7 +69,7 @@ knn.fit(X_train, y_train)
 # Set the title of the app
 st.title("My First AI/ML Project")
 st.header("Iris Flower Species Prediction 🌸")
-st.write("This app predicts the species of an Iris flower based on its measurements.")
+st.write("Hey there! I'm Osiel, this is my first AI/ML app, it predicts the species of an Iris flower based on its measurements.")
 # Create sliders in the sidebar for user input
 st.sidebar.header("Input Flower Measurements (cm)")
 
@@ -88,6 +96,7 @@ input_df = user_input_features()
 
 # Display the user's input
 st.subheader("Your Input")
+st.write("Use the sliders in the sidebar (top-left corner) to adjust the flower's measurements:")
 st.write(input_df)
 
 # Predict the species using the KNN model
@@ -113,3 +122,16 @@ elif iris.target_names[prediction][0] == 'versicolor':
 
 else: 
   st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Iris_virginica_2.jpg/1024px-Iris_virginica_2.jpg", caption="Iris Virginica")
+
+st.subheader("How does it work? 🤔")
+st.write("This app uses a K-Nearest Neighbors (KNN) classifier to predict the species of an Iris flower based on its measurements. The model was trained on the Iris dataset, which contains measurements of different Iris flowers and their corresponding species labels.")
+st.subheader("Tech Stack 🌼")
+st.write("This app is built using the following technologies:")
+st.write("- Python: the programming language used for building the application")
+st.write("- Streamlit: the framework used for creating the web application")
+st.write("- Scikit-learn: the library used for implementing machine learning algorithms")
+st.write("- Pandas: the library used for data manipulation and analysis")
+
+st.subheader("My portfolio 👨‍💻")
+st.write("Check out my portfolio to see more of my work:")
+st.write("[My Portfolio](https://portfolio-seven-rose-88.vercel.app/)")
